@@ -6,7 +6,7 @@ const Book = ({ singleBook }) => {
 
   return (
     <Link to={`/bookDetails/${bookId}`}>
-      <div className="card bg-base-100 p-3 w-96 border shadow-sm">
+      <div className="card hover:bg-indigo-300   bg-base-100 p-3 w-96 border shadow-xl">
         <figure>
           <img className="h-44" src={image} alt="Shoes" />
         </figure>
@@ -17,9 +17,7 @@ const Book = ({ singleBook }) => {
             A card component has a figure, a body part, and inside body there
             are title and actions parts
           </p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
+          
         </div>
       </div>
     </Link>
