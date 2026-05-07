@@ -39,7 +39,7 @@ const ReadList = () => {
           </li>
           <li> 
             <a 
-              onClick={() => {
+              onClick={() => {     
                 handleSort("ratings");
               }}>Ratings</a>
           </li>
