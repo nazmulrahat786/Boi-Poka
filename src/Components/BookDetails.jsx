@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { addToStoreDB } from '../uitilis/addToDB';
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -12,6 +13,7 @@ const BookDetails = () => {
     return <h2 className="text-center text-red-500 mt-10">Book not found</h2>;
   }
 
+
   const {
     bookname,
     author,
@@ -23,6 +25,14 @@ const BookDetails = () => {
     totalPages,
     review
   } = singleBook;
+
+
+
+const handleMarkAsRead = id =>{
+addToStoreDB(id)
+}
+
+
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
@@ -69,8 +79,10 @@ const BookDetails = () => {
           </div>
 
           {/* Buttons */}
-          <div className="flex gap-4 mt-6">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition">
+          <div  className="flex gap-4 mt-6">
+            <button onClick={()=>{
+              handleMarkAsRead(id)
+            }} className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition">
              Mark to Read 
             </button>
             <button className="border border-gray-400 hover:bg-gray-100 px-5 py-2 rounded-lg transition">
