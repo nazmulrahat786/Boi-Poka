@@ -21,7 +21,17 @@ const ReadList = () => {
 
   const handleSort = (type) => {
     setSort(type);
-  };
+    if(type === "pages"){
+const sortedByPage = [...readList].sort((a,b) => a.totalPages-b.totalPages);
+setReadList(sortedByPage)
+    }
+     if(type === "ratings"){
+const sortedByRating = [...readList].sort((a,b) => a.rating-b.rating);
+setReadList(sortedByRating)
+    }
+  }
+   
+
 
   return (
     <div>
@@ -55,9 +65,11 @@ const ReadList = () => {
         <TabPanel>
           <h2>Book i read {readList.length}</h2>
 
-          {readList.map((b) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-9 py-4 mx-auto px-4 items-center justify-center">
+              {readList.map((b) => (
             <Book key={b.bookId} singleBook={b}></Book>
           ))}
+        </div>
         </TabPanel>
         <TabPanel>
           <h2>My Wish List</h2>
