@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { addToStoreDB } from '../uitilis/addToDB';
+import Swal from 'sweetalert2'
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -29,7 +30,9 @@ const BookDetails = () => {
 
 
 const handleMarkAsRead = id =>{
+
 addToStoreDB(id)
+
 }
 
 

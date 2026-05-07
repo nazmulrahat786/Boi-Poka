@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 const getStoredBook = ()=>{
     const storeBookSTR = localStorage.getItem("readList")
     if( storeBookSTR){
@@ -13,12 +14,22 @@ const addToStoreDB = (id)=>{
 const storeBookData = getStoredBook()
 
 if (storeBookData.includes(id)){
-    alert("Vai aita asa storage")
+ Swal.fire({
+  title: "Vai already Add kora hoisa🙂‍↕️",
+  icon: "error",
+  draggable: false,
+  allowOutsideClick: false
+});
 }
 else{
     storeBookData.push(id)
     const data =JSON.stringify(storeBookData)
     localStorage.setItem("readList",data)
+      Swal.fire({
+      title: "Add korc vai😁",
+      icon: "success",
+      draggable: true
+    });
 
 }
 
