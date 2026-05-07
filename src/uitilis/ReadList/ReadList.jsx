@@ -37,7 +37,7 @@ const ReadList = () => {
               Pages
             </a>
           </li>
-          <li>
+          <li> 
             <a 
               onClick={() => {
                 handleSort("ratings");
